@@ -34,7 +34,7 @@ Application will be on localhost:8000
 ```
 docker build --file ./docker/Dockerfile .
 docker run -d --rm --env-file .app.env -v "./:/app" -p 127.0.0.1:8000:8080/tcp image-develop /bin/sh -c 'composer install && php yii serve 0.0.0.0:8080'
-``
+```
 
 
 DIRECTORY STRUCTURE
