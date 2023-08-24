@@ -19,7 +19,7 @@ features to your application.
 
 DEVELOPMENT WITH DOCKER
 
-copy all configs
+copy environment variables config
 
 ```
 cp .app.env.example .app.env

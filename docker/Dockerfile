@@ -1,12 +1,7 @@
 # syntax=docker/dockerfile:1
-FROM alpine AS image-build
+FROM alpine AS yii-php8
 
-ENV GIT_WORK_TREE=/app GIT_DIR=/app/.git
-
-RUN apk add --update\
- zsh\
- git\
- composer\
+RUN apk add\
  php81\
  php81-dom\
  php81-xml\
@@ -28,6 +23,18 @@ RUN apk add --update\
  php81-intl\
  php81-fileinfo\
  php81-pecl-memcache
+
+
+
+
+FROM yii-php8 AS image-develop
+
+ENV GIT_WORK_TREE=/app GIT_DIR=/app/.git
+
+RUN apk add --update\
+ zsh\
+ git\
+ composer
 
 WORKDIR /app
 
