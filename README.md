@@ -17,7 +17,7 @@ features to your application.
 [![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-basic.svg)](https://packagist.org/packages/yiisoft/yii2-app-basic)
 [![build](https://github.com/yiisoft/yii2-app-basic/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-basic/actions?query=workflow%3Abuild)
 
-DEVELOPMENT WITH DOCKER
+# DEVELOPMENT WITH DOCKER
 
 copy environment variables config
 
@@ -28,6 +28,13 @@ docker compose up
 ```
 
 Application will be on localhost:8000
+
+## MANUAL DEVELOPMENT CONTAINER BUILD
+
+```
+docker build --file ./docker/Dockerfile .
+docker run -d --rm --env-file .app.env -v "./:/app" -p 127.0.0.1:8000:8080/tcp image-develop /bin/sh -c 'composer install && php yii serve 0.0.0.0:8080'
+``
 
 
 DIRECTORY STRUCTURE
