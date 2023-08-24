@@ -12,5 +12,4 @@ services:
       - ${SERVER_PORT:-8000}:8080
     volumes:
       - ./:/app
-      - ~/.composer-docker/cache:/root/.composer/cache:delegated
     command: /bin/sh -c 'composer install && php yii serve 0.0.0.0:8080'
