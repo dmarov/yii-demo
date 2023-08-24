@@ -22,7 +22,7 @@ DEVELOPMENT WITH DOCKER
 copy all configs
 
 ```
-cp ./docker/config/** ./config
+cp -r ./docker/config ./
 
 docker compose up
 ```
