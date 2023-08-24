@@ -36,6 +36,12 @@ docker build --file ./docker/Dockerfile .
 docker run -d --rm --env-file .app.env -v "./:/app" -p 127.0.0.1:8000:8080/tcp image-develop /bin/sh -c 'composer install && php yii serve 0.0.0.0:8080'
 ```
 
+## PRODUCTION
+
+```
+docker compose -f ./docker-compose.production.yml up --build 
+```
+
 
 DIRECTORY STRUCTURE
 -------------------

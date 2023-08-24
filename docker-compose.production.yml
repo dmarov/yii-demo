@@ -1,0 +1,10 @@
+version: "3.7"
+services:
+  yii-demo:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile-production
+    ports:
+      - ${SERVER_PORT:-8000}:80
+    env_file:
+      - .app.env
