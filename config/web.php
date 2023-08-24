@@ -2,6 +2,8 @@
 
 $params = require __DIR__ . '/params.php';
 $db = require __DIR__ . '/db.php';
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../', '.env.app');
+$dotenv->load();
 
 $config = [
     'id' => 'basic',
@@ -14,7 +16,7 @@ $config = [
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
-            'cookieValidationKey' => '',
+            'cookieValidationKey' => $_ENV['APP_COOKIE_VALIDATION_KEY'],
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

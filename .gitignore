@@ -38,5 +38,5 @@ tests/_support/_generated
 # docker variables
 /.env
 
-# configs with secrets
-/config
+# application variables
+/.env.app
