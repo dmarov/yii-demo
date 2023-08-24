@@ -31,13 +31,14 @@ RUN apk add\
 WORKDIR /app
 
 COPY ./docker/php.ini /etc/php81/php.ini
-COPY ./docker/nginx.conf /etc/nginx/http.d/yii-demo.conf
-COPY ./docker/php-fpm.conf /etc/php81/php-fpm.d/www.conf
+COPY ./docker/nginx/yii-demo.conf /etc/nginx/http.d/yii-demo.conf
+COPY ./docker/php-fpm/www.conf /etc/php81/php-fpm.d/www.conf
 COPY ./docker/startup.sh /startup.sh
 RUN chmod +x /startup.sh
 RUN rm /etc/nginx/http.d/default.conf
 
 COPY ./ /app
+RUN composer install
 RUN chown -R nginx:nginx ./
 
 CMD ["/startup.sh"]
