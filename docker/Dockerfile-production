@@ -1,5 +1,4 @@
 # syntax=docker/dockerfile:1
-# image for production
 FROM alpine AS yii-demo-production
 
 RUN apk add\
@@ -29,6 +28,9 @@ RUN apk add\
  php81-pecl-memcache
 
 WORKDIR /app
+
+ENV YII_DEBUG=false
+ENV YII_ENV=production
 
 COPY ./docker/php.ini /etc/php81/php.ini
 COPY ./docker/nginx/yii-demo.conf /etc/nginx/http.d/yii-demo.conf

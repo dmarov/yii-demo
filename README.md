@@ -32,21 +32,22 @@ Application will be on localhost:8000
 ## MANUAL DEVELOPMENT CONTAINER BUILD
 
 ```
-docker build --file ./docker/Dockerfile-develop .
-docker run -d --rm --env-file .app.env -v "./:/app" -p 127.0.0.1:8000:8080/tcp yii-demo-develop /bin/sh -c 'composer install && php yii serve 0.0.0.0:8080'
+docker build --file ./docker/Dockerfile-develop -t yii-demo-develop .
+docker run -d --rm --env-file .app.env -v "./:/app" -p 127.0.0.1:8000:8080/tcp yii-demo-develop
 ```
 
 ## PRODUCTION
 
 ```
+cp .app.env.example .app.env
 docker compose -f ./production.docker-compose.yml up --build 
 ```
 
 ## MANUAL PRODUCTION CONTAINER BUILD
 
 ```
-docker build --file ./docker/Dockerfile-production .
-docker run -d --rm --env-file .app.env -p 127.0.0.1:8000:8080/tcp yii-demo-production
+docker build --file ./docker/Dockerfile-production -t yii-demo-production .
+docker run -d --rm --env-file .app.env -p 127.0.0.1:8000:80/tcp yii-demo-production
 ```
 
 DIRECTORY STRUCTURE
